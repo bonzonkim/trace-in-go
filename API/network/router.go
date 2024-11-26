@@ -4,7 +4,7 @@ type Router struct {
 	*Network	
 }
 
-func NewRouter(n *Network) {
+func newRouter(n *Network) {
 	s := &Router{n}
 
 	n.Router(GET, "/send", s.send)

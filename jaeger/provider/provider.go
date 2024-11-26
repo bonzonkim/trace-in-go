@@ -17,8 +17,8 @@ func NewProvider(service string) (io.Closer, error) {
 			Param: 1, // 위의 Type이 이 Param에 의해 false,true가 정해짐
 		},
 		Reporter: &config.ReporterConfig{
-			LogSpans: true,
-		    //LocalAgentHostPort: "localhost:6831",
+			LogSpans:           true,
+			LocalAgentHostPort: "localhost:6831",
 		},
 	}
 	// docker run -d -p6831:6831/udp -p16686:16686 jaegertracing/all-in-one:latest
@@ -28,7 +28,7 @@ func NewProvider(service string) (io.Closer, error) {
 	//	opentracing.SetGlobalTracer(tracer)
 	//	return closer, nil
 	//}
-	tracer, closer, err := setting.NewTracer(config.Logger(log.StdLogger)) 
+	tracer, closer, err := setting.NewTracer(config.Logger(log.StdLogger))
 	if err != nil {
 		return nil, err
 	}

@@ -15,7 +15,7 @@ type Network struct {
 func NewNetwork(client *jaeger.Client) *Network {
 	n := &Network {client: client, engine: gin.New()}
 
-	NewRouter(n)
+	newRouter(n)
 
 	return n
 }
